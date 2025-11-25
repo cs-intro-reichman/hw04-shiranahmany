@@ -178,6 +178,7 @@ public class ArrCharOps {
         int l = 0;
         char c1 = ' ';
         char c2 = ' ';
+        if(str1 == "" || str2 == "") return -2;
         if (str1.length() == str2.length()) l = str1.length();
         else if (str1.length() < str2.length()) l = str1.length();
         else if (str1.length() > str2.length()) l = str1.length();
