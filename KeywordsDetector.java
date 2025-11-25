@@ -18,9 +18,53 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
     }
 
+    public static String[] toArr(String str) {
+        // Replace this comment with your code
+        String[] arr = str.split(" ");
+        char c = ' ';
+        int currI = 0;
+        String word = "";
+        for(int i = 0; i < str.length(); i++){
+            c = str.charAt(i);
+            if(c != ' '){
+                word = word + String.valueOf(c);
+                if((i + 1) != str.length()){
+                    if(str.charAt(i + 1) == ' '){
+                        arr[currI] = word;
+                        word = "";
+                        currI++;
+                    }
+                } else {
+                    arr[currI] = word;
+                } 
+            }
+        }
+        return arr;
+    }
+
+    public static boolean isKey(String[] words, String[] keywords) {
+        // Replace this comment with your code
+        boolean isKeyWord = false;
+        for (int i = 0; i < words.length; i++){
+            for(int j = 0; j < keywords.length; j++){
+                if(words[i].toLowerCase().equals(keywords[j].toLowerCase())){
+                    isKeyWord = true;
+                }
+            }
+        }
+        return isKeyWord;
+    }
+
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
         // Replace this comment with your code
+        String[] currCheck;
+        boolean isIn = false;
+        for (int i = 0; i < sentences.length; i++){
+            currCheck = toArr(sentences[i]);
+            isIn = isKey(currCheck, keywords);
+            if(isIn) System.out.println(sentences[i]);
+        }
     }
 }
