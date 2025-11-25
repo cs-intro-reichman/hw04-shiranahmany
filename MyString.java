@@ -26,39 +26,20 @@ public class MyString {
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
         // Replace the following statement with your code
-        int l1 = 0;
-        int l2 = 0;
-        char c1 = ' ', c2 = ' ';
-        if(str1 == "" || str2 == "") return false;
-        if (str1.indexOf(str2.charAt(0)) == -1) return false;
-        l1 = str1.indexOf(str2.charAt(0));
-        boolean equals = false;
-        while(l1 < str1.length()){
-            c1 = str1.charAt(l1);
-            c2 = str2.charAt(l2);
-            if(c1 == c2){
-               equals = true;
-               l1++;
-               l2++;
-                while(l2 < str2.length()){
-                    c1 = str1.charAt(l1);
-                    c2 = str2.charAt(l2);
-                    if(c1 != c2)  {
-                        equals = false;
-                        break;
-                    } else {
-                        l1++;
-                        l2++;
-                    }
-               }
+        if (str2.length() == 0) return true;          
+        if (str1.length() == 0) return false;        
+        if (str2.length() > str1.length()) return false;
+
+        for (int i = 0; i <= str1.length() - str2.length(); i++) {
+            int j = 0;
+            while (j < str2.length() && str1.charAt(i + j) == str2.charAt(j)) {
+                j++;
             }
-            if(equals){
-                break;
-            } else {
-                l2 = 0;
-                l1++;
+            if (j == str2.length()) {
+                return true; 
             }
         }
-        return equals;
+
+        return false;
     }
 }

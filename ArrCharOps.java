@@ -96,7 +96,8 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         // Replace the following statement with your code
-        if(arr1.length == 0 || arr2.length == 0) return null;
+        if(arr1.length == 0) return arr2;
+        if(arr2.length == 0) return arr1;
         char [] concArr = new char[arr1.length + arr2.length];
         for(int i = 0; i < arr1.length; i++){
             concArr[i] = arr1[i];
@@ -139,11 +140,7 @@ public class ArrCharOps {
         int n = arr.length;
         int sum = 0;
         for(int i = 0; i < arr.length; i++){
-            if(n == 0) sum += ((arr[i]));
-            if(n > 0) {
-                sum += ((arr[i] * 7) ^ (n-1));
-                n--;
-            }
+            sum += arr[i] * 7 ^ (n - (i + 1));
         }
         return sum;
     }
