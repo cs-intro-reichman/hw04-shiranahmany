@@ -140,7 +140,7 @@ public class ArrCharOps {
         int n = arr.length;
         int sum = 0;
         for(int i = 0; i < arr.length; i++){
-            sum += arr[i] * 7 ^ (n - (i + 1));
+            sum += arr[i] * Math.pow(7, n - 1 - i);
         }
         return sum;
     }
