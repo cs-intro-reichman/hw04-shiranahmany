@@ -29,6 +29,7 @@ public class MyString {
         int l1 = 0;
         int l2 = 0;
         char c1 = ' ', c2 = ' ';
+        if(str1 == "" || str2 == "") return false;
         if (str1.indexOf(str2.charAt(0)) == -1) return false;
         l1 = str1.indexOf(str2.charAt(0));
         boolean equals = false;
